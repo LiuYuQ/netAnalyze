@@ -1,0 +1,40 @@
+1、资料
+http://bionet.org.cn/
+官网 js.cytoscape.org
+https://blog.csdn.net/zhongzhu2002/article/details/45843283
+
+2、neo4j操作    http://localhost:7474/
+####命令行管理员身份执行：
+d:
+cd D:\Program Files (x86)\neo4j-community-3.4.10\bin
+neo4j start  （restart    stop）
+
+####导入数据（文件在D:\Program Files (x86)\neo4j-community-3.4.10\bin\import文件下）
+neo4j-admin.bat import --database=test --nodes=import\pam3node.csv --nodes=import\r848node.csv --nodes=import\HumanNetnode.csv --nodes=import\HumanSignalingNetworknode.csv --nodes=import\i2dnode.csv --relationships=import\pam3.csv --relationships=import\r848.csv --relationships=import\HumanNet.csv --relationships=import\HumanSignalingNetwork.csv --relationships=import\i2d.csv 
+####数据库已存在修改neo4j.conf文件第9行数据库名称
+
+3、cytoscape.js例子
+####保留已单击的节点集合：
+var collection = cy.collection();
+cy.nodes().on('click', function(e){
+  var clickedNode = e.target;
+
+  collection = collection.union(clickedNode);
+});
+
+MATCH (n{name:'ATG3'}) RETURN labels(n)
+MATCH (n:pam3{name:'ATG3'})-[r*..1]-(m) return n,r,m
+
+ 1693 | (:pam3 {exp:"1.896987301",labels:"c",name:"NLE1",nodeID:"54475"})-[r3108:pam3 {weight:"-0.848866098"}]->(:pam3 {exp:"1.860998865",labels:"c",name:"HIST1H3H",nodeID:"8357"}) 
+
+1 | [<Relationship graph='http://localhost:7474/db/data/' ref='relationship/837' start='node/257' end='node/48' type='pam3' properties={'weight': '0.807453662'}>] 
+
+
+
+
+
+
+
+
+进入虚拟环境
+source /py3env/bin/activate
