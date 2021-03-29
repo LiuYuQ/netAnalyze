@@ -45,7 +45,7 @@ public==2018.11.20
 py==1.7.0
 py2neo==2.0.8
 pycairo==1.15.4
-Pygments==2.2.0
+Pygments==2.7.4
 PyMySQL==0.7.11
 pyparsing==2.2.0
 pytest==4.0.0
